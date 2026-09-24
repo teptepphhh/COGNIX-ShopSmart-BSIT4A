@@ -212,10 +212,7 @@ Run:
 npm run dev
 ```
 
-Keep this terminal open. It runs both applications:
-
-- Front end: http://localhost:5173
-- API: http://localhost:3000
+Keep this terminal open. It runs both applications. The front end usually starts on http://localhost:5173, but if that port is already in use, Vite will select the next available port automatically (for example http://localhost:5174). The API stays on http://localhost:3000.
 
 ### 10. Verify the API
 
@@ -232,7 +229,7 @@ Keep this terminal open. It runs both applications:
 
 ### 11. Verify the front end
 
-1. Visit http://localhost:5173.
+1. Visit the front-end URL shown in the terminal. Usually this is http://localhost:5173, but if that port is already busy, use the alternate port Vite prints instead (for example http://localhost:5174).
 2. Confirm that six product cards appear.
 3. Search for `keyboard`.
 4. Clear the search.
@@ -300,7 +297,7 @@ Check that PostgreSQL is running and that `DATABASE_URL` uses the correct userna
 
 ### Port 3000 or 5173 is already in use
 
-Stop the previous ShopSmart process with `Ctrl+C`. Do not change ports unless the instructor directs the whole class to update the configuration.
+Stop the previous ShopSmart process with `Ctrl+C`. If Vite chooses a different front-end port (for example 5174 because 5173 is occupied), use the URL shown in the terminal instead of assuming 5173 is always active.
 
 ### Products do not appear
 
@@ -308,7 +305,7 @@ Verify http://localhost:3000/api/health, then run `npm run db:seed` and restart 
 
 ### The browser reports a CORS error
 
-Confirm that the front end uses http://localhost:5173 and that `FRONTEND_URL=http://localhost:5173` appears in `backend/.env`.
+Confirm that the front-end URL matches the one shown in the terminal. If Vite has moved to another port, update `FRONTEND_URL` in `backend/.env` to the same port or use a comma-separated list such as `http://localhost:5173,http://localhost:5174`.
 
 ## Project commands
 

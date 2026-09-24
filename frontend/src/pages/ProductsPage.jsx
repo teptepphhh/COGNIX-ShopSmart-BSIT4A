@@ -26,10 +26,14 @@ export default function ProductsPage() {
     [products]
   );
 
-  const visibleProducts = products.filter((product) => {
-    const matchesSearch = product.name.toLowerCase().includes(search.trim().toLowerCase());
+  const query = search.trim().toLowerCase();
+
+    const visibleProducts = products.filter((product) => {
+    const matchesSearch =
+    product.name.toLowerCase().includes(query) ||
+    product.description.toLowerCase().includes(query);
     const matchesCategory = category === 'All' || product.category === category;
-    return matchesSearch && matchesCategory;
+  return matchesSearch && matchesCategory;
   });
 
   return (
